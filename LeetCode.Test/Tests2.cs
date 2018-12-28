@@ -161,5 +161,66 @@ namespace LeetCode.Test
             Assert.AreEqual("a", solution.LongestPalindrome("abcda"));
             Assert.AreEqual("adada", solution.LongestPalindrome("babadada"));
         }
+
+        [TestMethod]
+        public void TestP2()
+        {
+            var solution = new P2.Solution();
+
+            var result = solution.AddTwoNumbers(new P2.ListNode(0), new P2.ListNode(0));
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.val);
+            result = result.next;
+            Assert.IsNull(result);
+
+            result = solution.AddTwoNumbers(new P2.ListNode(2), new P2.ListNode(1));
+            Assert.IsNotNull(result);
+            Assert.AreEqual(3, result.val);
+            result = result.next;
+            Assert.IsNull(result);
+
+            result = solution.AddTwoNumbers(new P2.ListNode(7), new P2.ListNode(8));
+            Assert.IsNotNull(result);
+            Assert.AreEqual(5, result.val);
+            result = result.next;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.val);
+            result = result.next;
+            Assert.IsNull(result);
+
+            result = solution.AddTwoNumbers(new P2.ListNode(1) { next = new P2.ListNode(1) }, new P2.ListNode(2) { next = new P2.ListNode(9) });
+            Assert.IsNotNull(result);
+            Assert.AreEqual(3, result.val);
+            result = result.next;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.val);
+            result = result.next;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.val);
+            result = result.next;
+            Assert.IsNull(result);
+        }
+
+        private char[,] ConvertTo2DArray(string data)
+        {
+            var arr = data.Split('\t');
+            var x = arr[0].Length;
+            var y = arr.Length;
+
+            var result = new char[x, y];
+            for (var i = 0; i < x; i++) for (var j = 0; j < y; j++) result[i, j] = arr[j][i];
+            return result;
+        }
+
+        [TestMethod]
+        public void TestP200()
+        {
+            var solution = new P200.Solution();
+            Assert.AreEqual(1, solution.NumIslands(ConvertTo2DArray("11110\t11010\t11000\t00000")));
+            Assert.AreEqual(3, solution.NumIslands(ConvertTo2DArray("11000\t11000\t00100\t00011")));
+            Assert.AreEqual(0, solution.NumIslands(ConvertTo2DArray("0")));
+            Assert.AreEqual(2, solution.NumIslands(ConvertTo2DArray("10\t01")));
+
+        }
     }
 }

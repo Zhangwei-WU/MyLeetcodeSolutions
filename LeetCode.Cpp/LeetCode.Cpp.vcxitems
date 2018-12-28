@@ -17,6 +17,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)P231-Power-of-Two.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)P138-Copy-List-with-Random-Pointer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P33-Search-in-Rotated-Sorted-Array.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P37-Sudoku-Solver.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P632-Smallest-Range.h" />
