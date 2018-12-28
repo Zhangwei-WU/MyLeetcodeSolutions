@@ -137,5 +137,29 @@ namespace LeetCode.Test
             solution.LongestIncreasingPath(new int[,] { { 9, 9, 4 }, { 6, 6, 8 }, { 2, 1, 1 } });
         }
 
+        [TestMethod]
+        public void TestP20()
+        {
+            var solution = new P20.Solution();
+            Assert.IsTrue(solution.IsValid("()"));
+            Assert.IsTrue(solution.IsValid("[]{}()"));
+            Assert.IsFalse(solution.IsValid("[}"));
+            Assert.IsFalse(solution.IsValid("[{(]"));
+            Assert.IsTrue(solution.IsValid("{[((())())]()}"));
+            Assert.IsFalse(solution.IsValid("((((((()))))"));
+        }
+
+        [TestMethod]
+        public void TestP5()
+        {
+            var solution = new P5.Solution();
+
+            Assert.AreEqual("bb", solution.LongestPalindrome("cbbd"));
+            Assert.AreEqual("aba", solution.LongestPalindrome("abac"));
+            Assert.AreEqual("bbbbbbb", solution.LongestPalindrome("bbbbbbb"));
+            Assert.AreEqual("bccb", solution.LongestPalindrome("abccbdefgf"));
+            Assert.AreEqual("a", solution.LongestPalindrome("abcda"));
+            Assert.AreEqual("adada", solution.LongestPalindrome("babadada"));
+        }
     }
 }
