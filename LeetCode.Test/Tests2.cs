@@ -222,5 +222,41 @@ namespace LeetCode.Test
             Assert.AreEqual(2, solution.NumIslands(ConvertTo2DArray("10\t01")));
 
         }
+
+        [TestMethod]
+        public void TestP301()
+        {
+            var solution = new P301.Solution();
+
+            var result = solution.RemoveInvalidParentheses(")(");
+            Assert.IsNotNull(result);
+            var resultCollection = new string[result.Count];
+            result.CopyTo(resultCollection, 0);
+            CollectionAssert.AreEquivalent(new string[] { string.Empty }, resultCollection);
+
+            result = solution.RemoveInvalidParentheses("()())()");
+            Assert.IsNotNull(result);
+            resultCollection = new string[result.Count];
+            result.CopyTo(resultCollection, 0);
+            CollectionAssert.AreEquivalent(new string[] { "()()()", "(())()" }, resultCollection);
+
+            result = solution.RemoveInvalidParentheses("(a)())()");
+            Assert.IsNotNull(result);
+            resultCollection = new string[result.Count];
+            result.CopyTo(resultCollection, 0);
+            CollectionAssert.AreEquivalent(new string[] { "(a)()()", "(a())()" }, resultCollection);
+
+            result = solution.RemoveInvalidParentheses("((((((((((");
+            Assert.IsNotNull(result);
+            resultCollection = new string[result.Count];
+            result.CopyTo(resultCollection, 0);
+            CollectionAssert.AreEquivalent(new string[] { string.Empty }, resultCollection);
+
+            result = solution.RemoveInvalidParentheses("(r(()()(");
+            Assert.IsNotNull(result);
+            resultCollection = new string[result.Count];
+            result.CopyTo(resultCollection, 0);
+            CollectionAssert.AreEquivalent(new string[] { "r()()", "r(())", "(r)()", "(r())" }, resultCollection);
+        }
     }
 }

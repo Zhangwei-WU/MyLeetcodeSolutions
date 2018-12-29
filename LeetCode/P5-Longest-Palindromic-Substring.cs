@@ -1,36 +1,48 @@
 ﻿namespace LeetCode.P5
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     public class Solution
     {
         public string LongestPalindrome(string s)
         {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+
             var cs = s.ToCharArray();
+            var len = cs.Length;
 
-            var lcs = LCS(cs, cs.Reverse().ToArray(), cs.Length, 0, 0);
+            var lp = new KeyValuePair<int, int>(0, 1);
 
-            return s.Substring(lcs.Key, lcs.Value);
-        }
-
-        // <pos, len>
-        public KeyValuePair<int, int> LCS(char[] s1, char[] s2, int l, int i, int j)
-        {
-            if (i == l || j == l) return new KeyValuePair<int, int>(i, 0);
-            if (s1[i] == s2[j])
+            for (var i = 0; i < len; i++)
             {
-                var lcs = LCS(s1, s2, l, i + 1, j + 1);
-                if (lcs.Key == i + 1) return new KeyValuePair<int, int>(i, lcs.Value + 1);
-                else if (lcs.Value > 1) return lcs;
-                else return new KeyValuePair<int, int>(i, 1);
+                var pos = TestPosition(cs, len, i);
+                if (pos.Value > lp.Value) lp = pos;
             }
 
-            var lcs1 = LCS(s1, s2, l, i + 1, j);
-            var lcs2 = LCS(s1, s2, l, i, j + 1);
+            return s.Substring(lp.Key, lp.Value);
+        }
 
-            if (lcs1.Value == lcs2.Value) return lcs1.Key < lcs2.Key ? lcs1 : lcs2;
-            return lcs1.Value > lcs2.Value ? lcs1 : lcs2;
+        public KeyValuePair<int, int> TestPosition(char[] arr, int len, int pos)
+        {
+            var index1 = pos;
+            var length1 = 1;
+            for (var i = pos - 1; i >= 0 && pos + pos - i < len; i--)
+            {
+                if (arr[i] != arr[pos + pos - i]) break;
+                index1 = i;
+                length1 += 2;
+            }
+
+            var index2 = pos;
+            var length2 = 0;
+            for (var i = pos; i >= 0 && pos + pos - i + 1 < len; i--)
+            {
+                if (arr[i] != arr[pos + pos - i + 1]) break;
+                index2 = i;
+                length2 += 2;
+            }
+
+            return length1 > length2 ? new KeyValuePair<int, int>(index1, length1) : new KeyValuePair<int, int>(index2, length2);
         }
     }
 }
