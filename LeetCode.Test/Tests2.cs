@@ -271,5 +271,15 @@ namespace LeetCode.Test
 
             CollectionAssert.AreEqual(new double[] { 6.0d, 0.5d, -1.0d, 1.0d, -1.0d }, result);
         }
+
+        [TestMethod]
+        public void TestP22()
+        {
+            var solution = new P22.Solution();
+            Assert.AreEqual(1, solution.GenerateParenthesis(1).Count);
+            Assert.AreEqual(2, solution.GenerateParenthesis(2).Count);
+            Assert.AreEqual(5, solution.GenerateParenthesis(3).Count);
+
+        }
     }
 }
