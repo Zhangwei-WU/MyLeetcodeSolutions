@@ -258,5 +258,18 @@ namespace LeetCode.Test
             result.CopyTo(resultCollection, 0);
             CollectionAssert.AreEquivalent(new string[] { "r()()", "r(())", "(r)()", "(r())" }, resultCollection);
         }
+
+        [TestMethod]
+        public void TestP399()
+        {
+            var solution = new P399.Solution();
+
+            var result = solution.CalcEquation(
+                new string[2, 2] { { "a", "b" }, { "b", "c" } },
+                new double[] { 2.0d, 3.0d },
+                new string[5, 2] { { "a", "c" }, { "b", "a" }, { "a", "e" }, { "a", "a" }, { "x", "x" } });
+
+            CollectionAssert.AreEqual(new double[] { 6.0d, 0.5d, -1.0d, 1.0d, -1.0d }, result);
+        }
     }
 }
