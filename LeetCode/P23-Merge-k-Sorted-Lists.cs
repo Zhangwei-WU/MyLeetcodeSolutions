@@ -24,53 +24,46 @@ namespace LeetCode.P23
         {
             MinHeap heap = new MinHeap(lists.Length);
 
-            for (var i = 0; i < lists.Length; i++)
-            {
-                if (lists[i] != null) heap.Add(lists[i]);
-            }
+            for (var i = 0; i < lists.Length; i++) if (lists[i] != null) heap.Add(lists[i]);
 
             var root = heap.Peek();
-            var curr = root;
-
-            while (heap.Count != 0)
+            for(var curr = root; heap.n != 0; curr = curr.next)
             {
                 if (curr.next == null) heap.RemoveMin();
                 else heap.ReplaceMin(curr.next);
 
                 curr.next = heap.Peek();
-                curr = curr.next;
             }
 
             return root;
         }
     }
-    
+
     public class MinHeap
     {
+        public int n = 0;
+
         private ListNode[] array;
-        private int n = 0;
-        private int capacity = 0;
 
         public MinHeap(int capacity)
         {
-            this.capacity = capacity;
-
-            array = new ListNode[this.capacity + 1];
+            array = new ListNode[capacity + 1];
         }
 
         public bool Add(ListNode node)
         {
             var p = ++n;
-            if (p > capacity) return false;
 
-            while (p > 1 && node.val < array[p >> 1].val)
+            var val = node.val;
+            ListNode n2 = null;
+            while (p > 1 && val < (n2 = array[p >> 1]).val)
             {
-                array[p] = array[p >> 1];
+                array[p] = n2;
                 p >>= 1;
             }
 
             array[p] = node;
-            
+
             return true;
         }
 
@@ -79,13 +72,14 @@ namespace LeetCode.P23
             int p = 1, c = 2, x = n - 1;
             int val = array[n].val;
             ListNode e = array[p];
-            
+            ListNode n2 = null;
+
             while (c <= x)
             {
-                if (c < x && array[c+1].val < array[c].val) c++;
-                if (array[c].val >= val) break;
+                if (c < x && array[c + 1].val < array[c].val) c++;
+                if ((n2 = array[c]).val >= val) break;
 
-                array[p] = array[c];
+                array[p] = n2;
                 p = c;
                 c <<= 1;
             }
@@ -94,19 +88,21 @@ namespace LeetCode.P23
             n--;
 
             return e;
-
         }
 
         public void ReplaceMin(ListNode node)
         {
             int p = 1, c = 2, x = n;
 
+            var val = node.val;
+            ListNode n2 = null;
+
             while (c <= x)
             {
                 if (c < x && array[c + 1].val < array[c].val) c++;
-                if (array[c].val >= node.val) break;
+                if ((n2 = array[c]).val >= val) break;
 
-                array[p] = array[c];
+                array[p] = n2;
                 p = c;
                 c <<= 1;
             }
@@ -118,19 +114,5 @@ namespace LeetCode.P23
         {
             return n == 0 ? null : array[1];
         }
-
-        public void Clear()
-        {
-            n = 0;
-        }
-
-        public int Count
-        {
-            get
-            {
-                return n;
-            }
-        }
     }
-
 }
