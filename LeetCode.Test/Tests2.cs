@@ -300,5 +300,22 @@ namespace LeetCode.Test
             Assert.AreEqual("a", solution.MinWindow("a", "a"));
             Assert.AreEqual("adobecodeba", solution.MinWindow("adobecodebanc", "abcda"));
         }
+
+        [TestMethod]
+        public void TestP238()
+        {
+            var solution = new P238.Solution();
+
+            CollectionAssert.AreEqual(
+                new int[] { 24, 12, 8, 6 },
+                solution.ProductExceptSelf(new int[] { 1, 2, 3, 4 }));
+        }
+
+        [TestMethod]
+        public void TestP11()
+        {
+            var solution = new P11.Solution();
+            Assert.AreEqual(49, solution.MaxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }));
+        }
     }
 }
