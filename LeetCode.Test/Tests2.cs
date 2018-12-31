@@ -317,5 +317,17 @@ namespace LeetCode.Test
             var solution = new P11.Solution();
             Assert.AreEqual(49, solution.MaxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }));
         }
+
+        [TestMethod]
+        public void TestP929()
+        {
+            var solution = new P929.Solution();
+            Assert.AreEqual(2,
+                solution.NumUniqueEmails(new string[]
+                {
+                    "test.email+alex@leetcode.com",
+                    "test.e.mail+bob.cathy@leetcode.com",
+                    "testemail+david@lee.tcode.com" }));
+        }
     }
 }
