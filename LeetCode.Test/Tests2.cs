@@ -281,5 +281,24 @@ namespace LeetCode.Test
             Assert.AreEqual(5, solution.GenerateParenthesis(3).Count);
 
         }
+
+        [TestMethod]
+        public void TestP17()
+        {
+            var solution = new P17.Solution();
+
+            CollectionAssert.AreEquivalent(
+                new string[] { "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" }, 
+                solution.LetterCombinations("23").ToArray());
+        }
+
+        [TestMethod]
+        public void TestP76()
+        {
+            var solution = new P76.Solution();
+            Assert.AreEqual("BANC", solution.MinWindow("ADOBECODEBANC", "ABC"));
+            Assert.AreEqual("a", solution.MinWindow("a", "a"));
+            Assert.AreEqual("adobecodeba", solution.MinWindow("adobecodebanc", "abcda"));
+        }
     }
 }
