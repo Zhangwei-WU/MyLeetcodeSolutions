@@ -329,5 +329,24 @@ namespace LeetCode.Test
                     "test.e.mail+bob.cathy@leetcode.com",
                     "testemail+david@lee.tcode.com" }));
         }
+
+        [TestMethod]
+        public void TestP297()
+        {
+            var solution = new P297.Codec();
+            var serialized = solution.serialize(
+                new P297.TreeNode(1)
+                {
+                    left = new P297.TreeNode(2),
+                    right = new P297.TreeNode(3)
+                });
+
+            var deserialized = solution.deserialize(serialized);
+            Assert.AreEqual(1, deserialized.val);
+            Assert.AreEqual(2, deserialized.left.val);
+            Assert.AreEqual(3, deserialized.right.val);
+            Assert.IsNull(deserialized.left.left);
+            Assert.IsNull(deserialized.right.right);
+        }
     }
 }
