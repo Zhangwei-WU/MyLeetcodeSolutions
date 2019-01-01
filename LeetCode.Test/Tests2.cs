@@ -3,7 +3,7 @@ namespace LeetCode.Test
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Linq;
-    
+
     public partial class Tests
     {
         [TestMethod]
@@ -28,7 +28,7 @@ namespace LeetCode.Test
         public void TestP23()
         {
             var array1 = new int[] { 1, 4, 6 };
-            var array2 = new int[] {  3, 5 };
+            var array2 = new int[] { 3, 5 };
             var array3 = new int[] { 2, 7, 8 };
 
             var lists = new P23.ListNode[] { GetListNode(array1), GetListNode(array2), GetListNode(array3) };
@@ -61,7 +61,7 @@ namespace LeetCode.Test
             var root = new P23.ListNode(array[0]);
             var curr = root;
 
-            for(var i =1; i< array.Length; i++)
+            for (var i = 1; i < array.Length; i++)
             {
                 curr.next = new P23.ListNode(array[i]);
                 curr = curr.next;
@@ -288,7 +288,7 @@ namespace LeetCode.Test
             var solution = new P17.Solution();
 
             CollectionAssert.AreEquivalent(
-                new string[] { "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" }, 
+                new string[] { "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" },
                 solution.LetterCombinations("23").ToArray());
         }
 
@@ -347,6 +347,50 @@ namespace LeetCode.Test
             Assert.AreEqual(3, deserialized.right.val);
             Assert.IsNull(deserialized.left.left);
             Assert.IsNull(deserialized.right.right);
+        }
+
+        [TestMethod]
+        public void TestP9()
+        {
+            var solution = new P9.Solution();
+            Assert.IsTrue(solution.IsPalindrome(0));
+            Assert.IsFalse(solution.IsPalindrome(-1));
+            Assert.IsTrue(solution.IsPalindrome(9));
+            Assert.IsFalse(solution.IsPalindrome(10));
+            Assert.IsTrue(solution.IsPalindrome(11));
+            Assert.IsFalse(solution.IsPalindrome(int.MaxValue));
+        }
+
+        [TestMethod]
+        public void TestP12()
+        {
+            var solution = new P12.Solution();
+            Assert.AreEqual("I", solution.IntToRoman(1));
+            Assert.AreEqual("III", solution.IntToRoman(3));
+            Assert.AreEqual("LVIII", solution.IntToRoman(58));
+            Assert.AreEqual("MCMXCIV", solution.IntToRoman(1994));
+            Assert.AreEqual("V", solution.IntToRoman(5));
+            Assert.AreEqual("X", solution.IntToRoman(10));
+            Assert.AreEqual("L", solution.IntToRoman(50));
+            Assert.AreEqual("C", solution.IntToRoman(100));
+            Assert.AreEqual("D", solution.IntToRoman(500));
+            Assert.AreEqual("M", solution.IntToRoman(1000));
+        }
+
+        [TestMethod]
+        public void TestP13()
+        {
+            var solution = new P13.Solution();
+            Assert.AreEqual(1, solution.RomanToInt("I"));
+            Assert.AreEqual(3, solution.RomanToInt("III"));
+            Assert.AreEqual(58, solution.RomanToInt("LVIII"));
+            Assert.AreEqual(1994, solution.RomanToInt("MCMXCIV"));
+            Assert.AreEqual(5, solution.RomanToInt("V"));
+            Assert.AreEqual(10, solution.RomanToInt("X"));
+            Assert.AreEqual(50, solution.RomanToInt("L"));
+            Assert.AreEqual(100, solution.RomanToInt("C"));
+            Assert.AreEqual(500, solution.RomanToInt("D"));
+            Assert.AreEqual(1000, solution.RomanToInt("M"));
         }
     }
 }
