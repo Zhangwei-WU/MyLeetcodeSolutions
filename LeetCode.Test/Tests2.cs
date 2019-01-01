@@ -402,5 +402,12 @@ namespace LeetCode.Test
             Assert.AreEqual("A", solution.LicenseKeyFormatting("-a", 1));
             Assert.AreEqual("A", solution.LicenseKeyFormatting("-a", 2));
         }
+
+        [TestMethod]
+        public void TestP53()
+        {
+            var solution = new P53.Solution();
+            Assert.AreEqual(6, solution.MaxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
+        }
     }
 }
