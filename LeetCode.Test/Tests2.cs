@@ -392,5 +392,15 @@ namespace LeetCode.Test
             Assert.AreEqual(500, solution.RomanToInt("D"));
             Assert.AreEqual(1000, solution.RomanToInt("M"));
         }
+
+        [TestMethod]
+        public void TestP482()
+        {
+            var solution = new P482.Solution();
+            Assert.AreEqual("5F3Z-2E9W", solution.LicenseKeyFormatting("5F3Z-2e-9-w", 4));
+            Assert.AreEqual("2-5G-3J", solution.LicenseKeyFormatting("2-5g-3-J", 2));
+            Assert.AreEqual("A", solution.LicenseKeyFormatting("-a", 1));
+            Assert.AreEqual("A", solution.LicenseKeyFormatting("-a", 2));
+        }
     }
 }
