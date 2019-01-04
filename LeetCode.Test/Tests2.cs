@@ -409,5 +409,50 @@ namespace LeetCode.Test
             var solution = new P53.Solution();
             Assert.AreEqual(6, solution.MaxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
         }
+
+        [TestMethod]
+        public void TestP121()
+        {
+            var solution = new P121.Solution();
+            Assert.AreEqual(5, solution.MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 }));
+            Assert.AreEqual(0, solution.MaxProfit(new int[] { 7, 6, 4, 3, 1 }));
+        }
+
+        [TestMethod]
+        public void TestP139()
+        {
+            var solution = new P139.Solution();
+            Assert.IsTrue(solution.WordBreak("leetcode", new string[] { "leet", "code" }));
+            Assert.IsTrue(solution.WordBreak("applepenapple", new string[] { "apple", "pen" }));
+            Assert.IsFalse(solution.WordBreak("catsandog", new string[] { "cats", "dog", "sand", "and", "cat" }));
+            Assert.IsFalse(solution.WordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+                new string[] { "a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa" }));
+            Assert.IsFalse(solution.WordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                new string[] { "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa", "ba" }));
+        }
+
+        [TestMethod]
+        public void TestP322()
+        {
+            var solution = new P322.Solution();
+            Assert.AreEqual(3, solution.CoinChange(new int[] { 1, 2, 5 }, 11));
+            Assert.AreEqual(-1, solution.CoinChange(new int[] { 2 }, 3));
+            Assert.AreEqual(0, solution.CoinChange(new int[] { 2 }, 0));
+            Assert.AreEqual(20, solution.CoinChange(new int[] { 1,2,5 }, 100));
+            Assert.AreEqual(20, solution.CoinChange(new int[] { 186, 419, 83, 408 }, 6249));
+            Assert.AreEqual(25, solution.CoinChange(new int[] { 3, 7, 405, 436 }, 8839));
+        }
+
+        [TestMethod]
+        public void TestP54()
+        {
+            var solution = new P54.Solution();
+            CollectionAssert.AreEqual(new int[] { 1 }, solution.SpiralOrder(new int[,] { { 1 } }).ToArray());
+            CollectionAssert.AreEqual(new int[] { 1, 2, 4, 3 }, solution.SpiralOrder(new int[,] { { 1, 2 }, { 3, 4 } }).ToArray());
+            CollectionAssert.AreEqual(new int[] { 1, 2, 5, 6, 4, 3 }, solution.SpiralOrder(new int[,] { { 1, 2, 5 }, { 3, 4, 6 } }).ToArray());
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3, 6, 9, 8, 7, 4, 5 }, solution.SpiralOrder(new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }).ToArray());
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3, 10, 11, 12, 9, 8, 7, 4, 5, 6 }, solution.SpiralOrder(new int[,] { { 1, 2, 3, 10 }, { 4, 5, 6, 11 }, { 7, 8, 9, 12 } }).ToArray());
+            CollectionAssert.AreEqual(new int[] { 7,8,9, }, solution.SpiralOrder(new int[,] { {7 }, { 8 }, { 9 } }).ToArray());
+        }
     }
 }
