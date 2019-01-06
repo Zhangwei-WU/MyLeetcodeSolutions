@@ -17,6 +17,7 @@ namespace LeetCode.P15
             var rlen = 0;
             var mindex = -1;
 
+            // compress, for non-zero values appear at most twice, zero appear only once if present
             for (int i = 0, prev = int.MaxValue, cnt = 0; i < len; i++)
             {
                 var ni = nums[i];
@@ -38,37 +39,32 @@ namespace LeetCode.P15
             // [0, mindex] is neg or zero
             // [mindex + 1, rlen] is pos
 
+            // neg + neg-zero == -pos
             if (rlen < 3 || mindex < 0) return result;
             for (int i = 0, pni = int.MaxValue, ni; i < mindex; i++)
             {
-                if ((ni = nums[i]) == pni) continue;
-                pni = ni;
+                if ((ni = nums[i]) == pni) continue; else pni = ni;
                 for (int j = i + 1, k = rlen - 1, pnj = int.MaxValue, nj; j <= mindex && k != mindex; j++)
                 {
-                    if ((nj = nums[j]) == pnj) continue;
-                    pnj = nj;
-                    for (int nk = -(ni + nj); k > mindex; k--)
+                    if ((nj = nums[j]) == pnj) continue; else pnj = nj;
+                    for (int nk = -(ni + nj), cp; k > mindex; k--)
                     {
-                        var cp = nums[k] - nk;
-                        if (cp > 0) continue;
+                        if ((cp = nums[k] - nk) > 0) continue;
                         if (cp == 0) result.Add(new int[] { ni, nj, nk });
                         break;
                     }
                 }
             }
-
+            // -neg = pos + pos
             for (int i = mindex + 1, pni = int.MinValue, ni; i < rlen - 1; i++)
             {
-                if ((ni = nums[i]) == pni) continue;
-                pni = ni;
+                if ((ni = nums[i]) == pni) continue; else pni = ni;
                 for (int j = i + 1, k = mindex, pnj = int.MinValue, nj; j < rlen && k != -1; j++)
                 {
-                    if ((nj = nums[j]) == pnj) continue;
-                    pnj = nj;
-                    for (int nk = -(ni + nj); k >= 0; k--)
+                    if ((nj = nums[j]) == pnj) continue; else pnj = nj;
+                    for (int nk = -(ni + nj), cp; k >= 0; k--)
                     {
-                        var cp = nums[k] - nk;
-                        if (cp > 0) continue;
+                        if ((cp = nums[k] - nk) > 0) continue;
                         if (cp == 0) result.Add(new int[] { nk, ni, nj });
                         break;
                     }
