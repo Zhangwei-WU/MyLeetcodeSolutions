@@ -438,7 +438,7 @@ namespace LeetCode.Test
             Assert.AreEqual(3, solution.CoinChange(new int[] { 1, 2, 5 }, 11));
             Assert.AreEqual(-1, solution.CoinChange(new int[] { 2 }, 3));
             Assert.AreEqual(0, solution.CoinChange(new int[] { 2 }, 0));
-            Assert.AreEqual(20, solution.CoinChange(new int[] { 1,2,5 }, 100));
+            Assert.AreEqual(20, solution.CoinChange(new int[] { 1, 2, 5 }, 100));
             Assert.AreEqual(20, solution.CoinChange(new int[] { 186, 419, 83, 408 }, 6249));
             Assert.AreEqual(25, solution.CoinChange(new int[] { 3, 7, 405, 436 }, 8839));
         }
@@ -452,7 +452,44 @@ namespace LeetCode.Test
             CollectionAssert.AreEqual(new int[] { 1, 2, 5, 6, 4, 3 }, solution.SpiralOrder(new int[,] { { 1, 2, 5 }, { 3, 4, 6 } }).ToArray());
             CollectionAssert.AreEqual(new int[] { 1, 2, 3, 6, 9, 8, 7, 4, 5 }, solution.SpiralOrder(new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }).ToArray());
             CollectionAssert.AreEqual(new int[] { 1, 2, 3, 10, 11, 12, 9, 8, 7, 4, 5, 6 }, solution.SpiralOrder(new int[,] { { 1, 2, 3, 10 }, { 4, 5, 6, 11 }, { 7, 8, 9, 12 } }).ToArray());
-            CollectionAssert.AreEqual(new int[] { 7,8,9, }, solution.SpiralOrder(new int[,] { {7 }, { 8 }, { 9 } }).ToArray());
+            CollectionAssert.AreEqual(new int[] { 7, 8, 9, }, solution.SpiralOrder(new int[,] { { 7 }, { 8 }, { 9 } }).ToArray());
+        }
+
+        [TestMethod]
+        public void TestP10()
+        {
+            var solution = new P10.Solution();
+            Assert.IsFalse(solution.IsMatch("aa", "a"));
+            Assert.IsTrue(solution.IsMatch("aa", "a*"));
+            Assert.IsTrue(solution.IsMatch("ab", ".*"));
+            Assert.IsFalse(solution.IsMatch("ab", ".*c"));
+            Assert.IsTrue(solution.IsMatch("aab", "c*a*b"));
+            Assert.IsFalse(solution.IsMatch("mississippi", "mis*is*p*."));
+        }
+
+        [TestMethod]
+        public void TestP236()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestP31()
+        {
+            var solution = new P31.Solution();
+
+            var seq = new int[] { 1, 2, 3 };
+            solution.NextPermutation(seq);
+            CollectionAssert.AreEqual(new int[] { 1, 3, 2 }, seq);
+            seq = new int[] { 3, 2, 1 };
+            solution.NextPermutation(seq);
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, seq);
+            seq = new int[] { 1, 1, 5 };
+            solution.NextPermutation(seq);
+            CollectionAssert.AreEqual(new int[] { 1, 5, 1 }, seq);
+            seq = new int[] { 1, 5, 1 };
+            solution.NextPermutation(seq);
+            CollectionAssert.AreEqual(new int[] { 5, 1, 1 }, seq);
         }
     }
 }
