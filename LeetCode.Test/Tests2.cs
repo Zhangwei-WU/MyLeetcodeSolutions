@@ -491,5 +491,28 @@ namespace LeetCode.Test
             solution.NextPermutation(seq);
             CollectionAssert.AreEqual(new int[] { 5, 1, 1 }, seq);
         }
+
+        [TestMethod]
+        public void TestP15()
+        {
+            var solution = new P15.Solution();
+            var result = solution.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4, 0, 0 });
+            Assert.AreEqual(3, result.Count);
+            for (var i = 0; i < 3; i++)
+            {
+                CollectionAssert.AreEqual(new int[] { 0, 0, 0 }, result[0].ToArray());
+                CollectionAssert.AreEqual(new int[] { -1, -1, 2 }, result[1].ToArray());
+                CollectionAssert.AreEqual(new int[] { -1, 0, 1 }, result[2].ToArray());
+            }
+
+            result = solution.ThreeSum(new int[] { 0 });
+            Assert.AreEqual(0, result.Count);
+
+            result = solution.ThreeSum(new int[] { 1, 1, -2 });
+            Assert.AreEqual(1, result.Count);
+
+            result = solution.ThreeSum(new int[] { -4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6 });
+            Assert.AreEqual(6, result.Count);
+        }
     }
 }
