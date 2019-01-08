@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    
+
     public class Solution
     {
         public IList<string> LetterCombinations(string digits)
@@ -17,15 +17,15 @@
 
         IEnumerable<string> FindLetterComb(char[] chars, int index, int length, char[] result)
         {
-            if(index == length)
+            if (index == length)
             {
                 yield return new string(result);
                 yield break;
             }
-            switch(chars[index])
+            switch (chars[index])
             {
                 case '2':
-                    for(var c = 'a'; c<='c'; c++)
+                    for (var c = 'a'; c <= 'c'; c++)
                     {
                         result[index] = c;
                         foreach (var r in FindLetterComb(chars, index + 1, length, result)) yield return r;

@@ -536,5 +536,36 @@ namespace LeetCode.Test
             var solution = new P4.Solution();
             Assert.AreEqual(1.0d, solution.FindMedianSortedArrays(new int[] { 1 }, new int[] { 2, 3 }));
         }
+
+        [TestMethod]
+        public void TestP8()
+        {
+            var solution = new P8.Solution();
+            Assert.AreEqual(42, solution.MyAtoi("42"));
+            Assert.AreEqual(0, solution.MyAtoi("+"));
+            Assert.AreEqual(-42, solution.MyAtoi("-42"));
+            Assert.AreEqual(4193, solution.MyAtoi("4193 with words"));
+            Assert.AreEqual(0, solution.MyAtoi("words and 987"));
+            Assert.AreEqual(int.MinValue, solution.MyAtoi("-91283472332"));
+        }
+
+        [TestMethod]
+        public void TestP26()
+        {
+            var solution = new P26.Solution();
+
+            var arr = new int[] { 1, 1, 2 };
+            Assert.AreEqual(2, solution.RemoveDuplicates(arr));
+            CollectionAssert.AreEqual(new int[] { 1, 2, 2 }, arr);
+        }
+
+        [TestMethod]
+        public void TestP29()
+        {
+            var solution = new P29.Solution();
+            Assert.AreEqual(3, solution.Divide(10, 3));
+            Assert.AreEqual(715827882, solution.Divide(int.MaxValue, 3));
+
+        }
     }
 }

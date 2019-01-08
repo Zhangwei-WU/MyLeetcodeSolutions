@@ -7,9 +7,8 @@
             var maxsum = nums[0];
             for (int i = 1, subtotal = maxsum, len = nums.Length; i < len; i++)
             {
-                var ni = nums[i];
-                subtotal += ni;
-                if (subtotal < ni) subtotal = ni;
+                if (subtotal < 0) subtotal = nums[i];
+                else subtotal += nums[i];
                 if (subtotal > maxsum) maxsum = subtotal;
             }
 
