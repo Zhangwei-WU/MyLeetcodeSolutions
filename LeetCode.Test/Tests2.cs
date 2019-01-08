@@ -514,5 +514,27 @@ namespace LeetCode.Test
             result = solution.ThreeSum(new int[] { -4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6 });
             Assert.AreEqual(6, result.Count);
         }
+
+        [TestMethod]
+        public void TestP904()
+        {
+            var solution = new P904.Solution();
+            Assert.AreEqual(0, solution.TotalFruit(new int[] { }));
+            Assert.AreEqual(1, solution.TotalFruit(new int[] { 1 }));
+            Assert.AreEqual(2, solution.TotalFruit(new int[] { 1, 1 }));
+            Assert.AreEqual(2, solution.TotalFruit(new int[] { 1, 2 }));
+            Assert.AreEqual(3, solution.TotalFruit(new int[] { 1, 2, 1 }));
+            Assert.AreEqual(4, solution.TotalFruit(new int[] { 1, 1, 2, 1 }));
+            Assert.AreEqual(3, solution.TotalFruit(new int[] { 0, 1, 2, 2 }));
+            Assert.AreEqual(4, solution.TotalFruit(new int[] { 1, 2, 3, 2, 2 }));
+            Assert.AreEqual(5, solution.TotalFruit(new int[] { 3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4 }));
+        }
+
+        [TestMethod]
+        public void TestP4()
+        {
+            var solution = new P4.Solution();
+            Assert.AreEqual(1.0d, solution.FindMedianSortedArrays(new int[] { 1 }, new int[] { 2, 3 }));
+        }
     }
 }
