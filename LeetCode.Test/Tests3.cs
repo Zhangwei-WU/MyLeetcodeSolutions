@@ -72,5 +72,14 @@
                     new string[] { "a/*comment", "line", "more_comment*/b" }).ToArray());
 
         }
+
+        [TestMethod]
+        public void TestP93()
+        {
+            var solution = new P93.Solution();
+            CollectionAssert.AreEquivalent(
+                new string[] { "255.255.11.135", "255.255.111.35" },
+                solution.RestoreIpAddresses("25525511135").ToArray());
+        }
     }
 }
