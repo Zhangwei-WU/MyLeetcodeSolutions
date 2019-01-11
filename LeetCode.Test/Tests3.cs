@@ -77,9 +77,20 @@
         public void TestP93()
         {
             var solution = new P93.Solution();
+
             CollectionAssert.AreEquivalent(
                 new string[] { "255.255.11.135", "255.255.111.35" },
                 solution.RestoreIpAddresses("25525511135").ToArray());
+        }
+
+        [TestMethod]
+        public void TestP41()
+        {
+            var solution = new P41.Solution();
+
+            Assert.AreEqual(3, solution.FirstMissingPositive(new int[] { 1, 2, 0 }));
+            Assert.AreEqual(2, solution.FirstMissingPositive(new int[] { 3, 4, -1, 1 }));
+            Assert.AreEqual(1, solution.FirstMissingPositive(new int[] { 7, 8, 9, 11, 12 }));
         }
     }
 }
