@@ -160,5 +160,28 @@
             Assert.AreEqual(3, solution.ConsecutiveNumbersSum(9));
             Assert.AreEqual(4, solution.ConsecutiveNumbersSum(15));
         }
+
+
+        [TestMethod]
+        public void TestP295()
+        {
+            var solution = new P295.MedianFinder();
+            solution.AddNum(1);
+            Assert.AreEqual(1.0d, solution.FindMedian());
+            solution.AddNum(2);
+            Assert.AreEqual(1.5d, solution.FindMedian());
+            solution.AddNum(3);
+            Assert.AreEqual(2.0d, solution.FindMedian());
+            solution.AddNum(0);
+            Assert.AreEqual(1.5d, solution.FindMedian());
+
+            solution = new P295.MedianFinder();
+            solution.AddNum(12);
+            Assert.AreEqual(12.0d, solution.FindMedian());
+            solution.AddNum(10);
+            Assert.AreEqual(11.0d, solution.FindMedian());
+            solution.AddNum(13);
+            Assert.AreEqual(12.0d, solution.FindMedian());
+        }
     }
 }
