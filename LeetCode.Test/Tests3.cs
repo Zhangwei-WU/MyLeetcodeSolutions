@@ -92,5 +92,73 @@
             Assert.AreEqual(2, solution.FirstMissingPositive(new int[] { 3, 4, -1, 1 }));
             Assert.AreEqual(1, solution.FirstMissingPositive(new int[] { 7, 8, 9, 11, 12 }));
         }
+
+        [TestMethod]
+        public void TestP127()
+        {
+            var solution = new P127.Solution();
+
+            Assert.AreEqual(5, solution.LadderLength("hit", "cog", new string[] { "hot", "dot", "dog", "lot", "log", "cog" }));
+        }
+
+        [TestMethod]
+        public void TestP215()
+        {
+            var solution = new P215.Solution();
+            Assert.AreEqual(5, solution.FindKthLargest(new int[] { 3, 2, 1, 5, 6, 4 }, 2));
+            Assert.AreEqual(4, solution.FindKthLargest(new int[] { 3, 2, 3, 1, 2, 4, 5, 5, 6 }, 4));
+        }
+
+        [TestMethod]
+        public void TestP43()
+        {
+            var solution = new P43.Solution();
+            Assert.AreEqual("6", solution.Multiply("2", "3"));
+            Assert.AreEqual("56088", solution.Multiply("123", "456"));
+        }
+
+        [TestMethod]
+        public void TestP67()
+        {
+            var solution = new P67.Solution();
+            Assert.AreEqual("0", solution.AddBinary("0", "0"));
+            Assert.AreEqual("1", solution.AddBinary("1", "0"));
+            Assert.AreEqual("10", solution.AddBinary("1", "1"));
+            Assert.AreEqual("1001", solution.AddBinary("111", "10"));
+            Assert.AreEqual("1110", solution.AddBinary("111", "111"));
+        }
+
+        [TestMethod]
+        public void TestP224()
+        {
+            var solution = new P224.Solution();
+            Assert.AreEqual(2, solution.Calculate("1 + 1  "));
+            Assert.AreEqual(23, solution.Calculate("2-1 + 22  "));
+            Assert.AreEqual(23, solution.Calculate("(1+(4+5+2)-3)+(6+8)"));
+        }
+
+        [TestMethod]
+        public void TestP528()
+        {
+            var solution = new P528.Solution(new int[] { 2, 3 });
+            var counter = new int[2];
+            for (var i = 0; i < 1000; i++)
+            {
+                var idx = solution.PickIndex();
+                Assert.IsTrue(idx >= 0 && idx < 2);
+                counter[idx]++;
+            }
+
+            Assert.IsTrue(counter[0] >= 400 - 50 && counter[0] <= 400 + 50);
+        }
+
+        [TestMethod]
+        public void TestP829()
+        {
+            var solution = new P829.Solution();
+            Assert.AreEqual(2, solution.ConsecutiveNumbersSum(5));
+            Assert.AreEqual(3, solution.ConsecutiveNumbersSum(9));
+            Assert.AreEqual(4, solution.ConsecutiveNumbersSum(15));
+        }
     }
 }
