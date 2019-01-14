@@ -217,5 +217,15 @@
             var solution = new P16.Solution();
             Assert.AreEqual(2, solution.ThreeSumClosest(new int[] { -1, 2, 1, -4 }, 1));
         }
+
+        [TestMethod]
+        public void TestP128()
+        {
+            var s1 = new P128.S1.Solution();
+            Assert.AreEqual(4, s1.LongestConsecutive(new int[] { 100, 4, 200, 1, 3, 2 }));
+
+            var s2 = new P128.S2.Solution();
+            Assert.AreEqual(4, s2.LongestConsecutive(new int[] { 100, 4, 200, 1, 3, 2 }));
+        }
     }
 }
