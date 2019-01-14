@@ -200,5 +200,22 @@
         {
             var solution = new P289.Solution();
         }
+
+        [TestMethod]
+        public void TestP239()
+        {
+            var solution = new P239.Solution();
+            CollectionAssert.AreEqual(
+                new int[] { 3, 3, 5, 5, 6, 7 },
+                solution.MaxSlidingWindow(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3));
+
+        }
+
+        [TestMethod]
+        public void TestP16()
+        {
+            var solution = new P16.Solution();
+            Assert.AreEqual(2, solution.ThreeSumClosest(new int[] { -1, 2, 1, -4 }, 1));
+        }
     }
 }

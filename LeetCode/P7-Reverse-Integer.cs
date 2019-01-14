@@ -1,5 +1,5 @@
 ﻿
-namespace LeetCode
+namespace LeetCode.P7
 {
     public class Solution
     {
