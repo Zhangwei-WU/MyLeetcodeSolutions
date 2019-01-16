@@ -534,7 +534,7 @@ namespace LeetCode.Test
         public void TestP4()
         {
             var solution = new P4.Solution();
-            Assert.AreEqual(1.0d, solution.FindMedianSortedArrays(new int[] { 1 }, new int[] { 2, 3 }));
+            Assert.AreEqual(2.0d, solution.FindMedianSortedArrays(new int[] { 1 }, new int[] { 2, 3 }));
         }
 
         [TestMethod]

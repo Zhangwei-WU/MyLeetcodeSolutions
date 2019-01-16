@@ -142,14 +142,14 @@
         {
             var solution = new P528.Solution(new int[] { 2, 3 });
             var counter = new int[2];
-            for (var i = 0; i < 1000; i++)
+            for (var i = 0; i < 10000; i++)
             {
                 var idx = solution.PickIndex();
                 Assert.IsTrue(idx >= 0 && idx < 2);
                 counter[idx]++;
             }
 
-            Assert.IsTrue(counter[0] >= 400 - 50 && counter[0] <= 400 + 50);
+            Assert.IsTrue(counter[0] >= 4000 - 500 && counter[0] <= 4000 + 500);
         }
 
         [TestMethod]
