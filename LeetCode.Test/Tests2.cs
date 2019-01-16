@@ -31,7 +31,7 @@ namespace LeetCode.Test
             var array2 = new int[] { 3, 5 };
             var array3 = new int[] { 2, 7, 8 };
 
-            var lists = new P23.ListNode[] { GetListNode(array1), GetListNode(array2), GetListNode(array3) };
+            var lists = new P23.ListNode[] { GetP23ListNode(array1), GetP23ListNode(array2), GetP23ListNode(array3) };
 
             var solution = new P23.Solution();
             var result = solution.MergeKLists(lists);
@@ -56,7 +56,7 @@ namespace LeetCode.Test
 
         }
 
-        private P23.ListNode GetListNode(int[] array)
+        private P23.ListNode GetP23ListNode(int[] array)
         {
             var root = new P23.ListNode(array[0]);
             var curr = root;

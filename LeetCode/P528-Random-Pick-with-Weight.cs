@@ -18,16 +18,8 @@
 
         public int PickIndex()
         {
-            var next = rnd.Next(total) + 1;
-            var idx = Array.BinarySearch(numbers, next);
-            if (idx < 0) idx = ~idx;
-            return idx;
+            var idx = Array.BinarySearch(numbers, rnd.Next(total) + 1);
+            return idx < 0 ? ~idx : idx;
         }
     }
-
-    /**
-     * Your Solution object will be instantiated and called as such:
-     * Solution obj = new Solution(w);
-     * int param_1 = obj.PickIndex();
-     */
 }

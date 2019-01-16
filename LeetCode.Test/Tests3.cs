@@ -227,5 +227,40 @@
             var s2 = new P128.S2.Solution();
             Assert.AreEqual(4, s2.LongestConsecutive(new int[] { 100, 4, 200, 1, 3, 2 }));
         }
+
+        private P25.ListNode GetP25ListNode(int[] array)
+        {
+            var root = new P25.ListNode(array[0]);
+            var curr = root;
+
+            for (var i = 1; i < array.Length; i++)
+            {
+                curr.next = new P25.ListNode(array[i]);
+                curr = curr.next;
+            }
+
+            return root;
+        }
+
+        private int[] GetArray(P25.ListNode node)
+        {
+            List<int> result = new List<int>();
+            while (node != null)
+            {
+                result.Add(node.val);
+                node = node.next;
+            }
+
+            return result.ToArray();
+        }
+
+        [TestMethod]
+        public void TestP25()
+        {
+            var solution = new P25.Solution();
+            CollectionAssert.AreEqual(
+                new int[] { 2, 1, 4, 3, 5 },
+                GetArray(solution.ReverseKGroup(GetP25ListNode(new int[] { 1, 2, 3, 4, 5 }), 2)));
+        }
     }
 }
