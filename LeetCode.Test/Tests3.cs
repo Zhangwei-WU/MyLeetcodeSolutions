@@ -262,5 +262,24 @@
                 new int[] { 2, 1, 4, 3, 5 },
                 GetArray(solution.ReverseKGroup(GetP25ListNode(new int[] { 1, 2, 3, 4, 5 }), 2)));
         }
+
+        [TestMethod]
+        public void TestP857()
+        {
+            var solution = new P857.Solution();
+            Assert.AreEqual(399.53846d,
+                (int)(100000 *
+                solution.MincostToHireWorkers(
+                    new int[] { 14, 56, 59, 89, 39, 26, 86, 76, 3, 36 },
+                    new int[] { 90, 217, 301, 202, 294, 445, 473, 245, 415, 487 }, 
+                    2)) / 100000.0d);
+
+            Assert.AreEqual(105.0d, solution.MincostToHireWorkers(new int[] { 10, 20, 5 }, new int[] { 70, 50, 30 }, 2));
+            Assert.AreEqual(30.66666d, (int)(100000 *
+                solution.MincostToHireWorkers(
+                    new int[] { 3, 1, 10, 10, 1 }, 
+                    new int[] { 4, 8, 2, 2, 7 }, 
+                    3)) / 100000.0d);
+        }
     }
 }
