@@ -22,25 +22,19 @@
 
             var heap = new MinHeap(K);
             var totalquantity = 0;
-            for (var i = 0; i < K; i++)
-            {
-                var cq = ratio[i].Key;
-                totalquantity += cq;
-                heap.Add(-cq);
-            }
+            for (var i = 0; i < K; i++) totalquantity -= heap.Add(-ratio[i].Key);
 
             var minwage = totalquantity * ratio[K - 1].Value;
 
-            for (var i = 1; i <= len - K; i++)
+            for (var i = K; i < len; i++)
             {
-                var cq = ratio[i + K - 1].Key;
-                var cp = cq + heap.Peek();
+                var kv = ratio[i];
+                var cp = kv.Key + heap.Peek();
                 if (cp >= 0) continue;
 
-                heap.ReplaceMin(-cq);
-                var currwage = (totalquantity += cp) * ratio[i + K - 1].Value;
+                heap.ReplaceMin(-kv.Key);
+                var currwage = (totalquantity += cp) * kv.Value;
                 if (currwage < minwage) minwage = currwage;
-
             }
 
             return minwage;
@@ -58,7 +52,7 @@
             array = new int[capacity + 1];
         }
 
-        public bool Add(int val)
+        public int Add(int val)
         {
             int p = ++n, n2 = 0;
             while (p > 1 && val < (n2 = array[p >> 1]))
@@ -69,14 +63,14 @@
 
             array[p] = val;
 
-            return true;
+            return val;
         }
 
-        public void ReplaceMin(int val)
+        public int ReplaceMin(int val)
         {
             int p = 1, c = 2, x = n;
 
-            int n2 = 0;
+            int n2 = 0, min = array[1];
 
             while (c <= x)
             {
@@ -89,6 +83,7 @@
             }
 
             array[p] = val;
+            return min;
         }
 
         public int Peek()
