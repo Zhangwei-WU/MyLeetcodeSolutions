@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LeetCode.P297
+﻿namespace LeetCode.P297
 {
     public class TreeNode
     {
