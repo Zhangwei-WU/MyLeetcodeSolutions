@@ -10,7 +10,7 @@
  * Given numerator = 2, denominator = 1, return "2".
  * Given numerator = 2, denominator = 3, return "0.(6)".
  * 
- * AC: 122ms
+ * AC: 96ms, beat 100%
  */
 
 namespace LeetCode.P166
@@ -32,9 +32,10 @@ namespace LeetCode.P166
             if (neg) n = -n;
 
             var intpart = n / d;
-            var fraction = n % d;
+            var fraction = n - intpart * d;
 
-            var intpartstring = (neg ? "-" : string.Empty) + intpart.ToString();
+            var intpartstring = intpart.ToString();
+            if (neg) intpartstring = "-" + intpartstring;
 
             if (fraction == 0L) return intpartstring;
 
@@ -46,18 +47,18 @@ namespace LeetCode.P166
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
             var cnt = 0;
-            System.Collections.Generic.Dictionary<long, int> remainders = new System.Collections.Generic.Dictionary<long, int>();
-            remainders.Add(fraction, cnt++);
+            System.Collections.Generic.Dictionary<long, int> rec = new System.Collections.Generic.Dictionary<long, int>();
+            rec.Add(fraction, cnt++);
 
             while (true)
             {
-                if (fraction == 0) return sb.ToString();
+                if (fraction == 0L) return sb.ToString();
 
-                sb.Append((fraction *= 10) / denominator);
-                fraction %= denominator;
-
-                int idx;
-                if (!remainders.TryGetValue(fraction, out idx)) remainders.Add(fraction, cnt++);
+                var digit = (fraction *= 10) / denominator;
+                sb.Append((char)(digit + '0'));
+                fraction -= digit * denominator;
+                
+                if (!rec.TryGetValue(fraction, out int idx)) rec.Add(fraction, cnt++);
                 else return sb.ToString(0, idx) + "(" + sb.ToString(idx, sb.Length - idx) + ")";
             }
         }
