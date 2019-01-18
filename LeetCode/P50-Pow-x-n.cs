@@ -10,6 +10,8 @@
  * Example 2:
  * Input: 2.10000, 3
  * Output: 9.26100
+ * 
+ * AC: 48ms, beat 100%
  */
 
 namespace LeetCode.P50
@@ -19,25 +21,29 @@ namespace LeetCode.P50
         public double MyPow(double x, int n)
         {
             if (n == 0 || x == 1.0d) return 1.0d;
-
+            if (x == 0.0d) return 0.0d;
             long ln = n;
 
             var negN = ln < 0;
-            if (negN) ln = -ln;
+            if (negN)
+            {
+                x = 1 / x;
+                ln = -ln;
+            }
 
             var negX = x < 0;
             if (negX) x = -x;
-            var negS = negX && ln % 2 == 1;
+            var negS = negX && (ln & 1L) == 1L;
 
             var v = 1.0d;
 
             for (var b = x; ln != 0L; ln >>= 1, b *= b)
             {
-                if (ln % 2 == 1) v *= b;
-                if (v == double.Epsilon || v == double.MaxValue) break;
+                if ((ln & 1L) == 1L) v *= b;
+                //if (v == double.Epsilon || v == double.MaxValue) break;
             }
 
-            return (negN ? 1 / v : v) * (negS ? -1.0d : 1.0d);
+            return negS ? -v : v;
         }
     }
 }
