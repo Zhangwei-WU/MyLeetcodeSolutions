@@ -1,5 +1,5 @@
 ﻿
-namespace LeetCode
+namespace LeetCode.P124
 {
     public class TreeNode
     {
