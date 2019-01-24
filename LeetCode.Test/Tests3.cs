@@ -191,7 +191,7 @@
             Assert.AreEqual(8, solution.LeastInterval("AAABBB".ToArray(), 2));
             Assert.AreEqual(16, solution.LeastInterval("AAAAAABCDEFG".ToArray(), 2));
             //
-            Assert.AreEqual(1000, solution.LeastInterval("GCAHAGGFGJHCAGEAHEFDBDHHEGFBCGFHJFACGDIJAGDFBFHIGJGHFEHJCEHFCEFHHIGAGDCBIDBCJIBGCHDIABAJCEBFBJJDDHIIBAEHJJAJEHGBFCHCBJBAHBDIFAEJHCEGFGBGCGAHEFHFCGBIEBJDBBGCAJBJJFJCAGJEGJCDDAIAJFHJDDDCEDDFBAJDIHBAFEBJAHDEIBHCCCGCBEAGHHAIABADAIECCDABHDECAHBIABEHCBADHEJBJABGJJFFHIAHFCHDHCCEIGJHDEIJCCHJCGIEDEHJAHDABFIFJJHDICGJCCDBEBEBGBACFEHBDCHFAIAEJFAEBIGHDBFDBIBEDIDFAEHBIGFDEBECCCJJCHIBHFHFDJDDHHCDAJDFDGBIFJJCCIFGFCEGEFDAIIHGHHAJDJGFGEEAHBGAJJEIHAGECDIBEAGACEBJCBADJEJIFFCBIHCFBCGDAABFCDBIIHHJAFJFJFHGFDJGIEBCGIFFJHHGAAJCGFBAAEEAEIGFDBIFABJFFJBFJFJFIEJHDGGDFGBJFJAJEGHIEGDIBDJAAGAIIAAIIHECAGIFFCDJJIAAFCJGCCHEAHFBJGIAAHGBEGDICGJCCIHBDJHBJHBFJEJAGHBEHBFFHEBEGHJGJBHCHAABEIHBIDJJCDGIJGJDFJEFDEBDBCBBCCIFDEIGGIBHGJAAHIIHAIFCDACGEGEEHDCGDIAGGDAHHIFEIADHBBGICGBIIDFFCCAIEAEJAHCDACBGHGJGIHBACHIDDCFGBHEBBHCBGGCFBEJBBIDHDIIAAHGFBJFDEGFAGGDABBBJAFHHDCJIAHGCJIFJCAECHJHHFGEACFJHDGGDDCBHBCEFBDJHJJJAFFDEFCIBHHDEAIABFGFFIEEGAIDFCHECGHFFHJHGAEHBGGDDDFIAFFDEHJEDDAJFEEEFIDAFFJEIJDDGACGGIEGEHEDEJBGIJCHCCAABCGBDIDEHJJBFEJHHIGBD".ToArray(), 
+            Assert.AreEqual(1000, solution.LeastInterval("GCAHAGGFGJHCAGEAHEFDBDHHEGFBCGFHJFACGDIJAGDFBFHIGJGHFEHJCEHFCEFHHIGAGDCBIDBCJIBGCHDIABAJCEBFBJJDDHIIBAEHJJAJEHGBFCHCBJBAHBDIFAEJHCEGFGBGCGAHEFHFCGBIEBJDBBGCAJBJJFJCAGJEGJCDDAIAJFHJDDDCEDDFBAJDIHBAFEBJAHDEIBHCCCGCBEAGHHAIABADAIECCDABHDECAHBIABEHCBADHEJBJABGJJFFHIAHFCHDHCCEIGJHDEIJCCHJCGIEDEHJAHDABFIFJJHDICGJCCDBEBEBGBACFEHBDCHFAIAEJFAEBIGHDBFDBIBEDIDFAEHBIGFDEBECCCJJCHIBHFHFDJDDHHCDAJDFDGBIFJJCCIFGFCEGEFDAIIHGHHAJDJGFGEEAHBGAJJEIHAGECDIBEAGACEBJCBADJEJIFFCBIHCFBCGDAABFCDBIIHHJAFJFJFHGFDJGIEBCGIFFJHHGAAJCGFBAAEEAEIGFDBIFABJFFJBFJFJFIEJHDGGDFGBJFJAJEGHIEGDIBDJAAGAIIAAIIHECAGIFFCDJJIAAFCJGCCHEAHFBJGIAAHGBEGDICGJCCIHBDJHBJHBFJEJAGHBEHBFFHEBEGHJGJBHCHAABEIHBIDJJCDGIJGJDFJEFDEBDBCBBCCIFDEIGGIBHGJAAHIIHAIFCDACGEGEEHDCGDIAGGDAHHIFEIADHBBGICGBIIDFFCCAIEAEJAHCDACBGHGJGIHBACHIDDCFGBHEBBHCBGGCFBEJBBIDHDIIAAHGFBJFDEGFAGGDABBBJAFHHDCJIAHGCJIFJCAECHJHHFGEACFJHDGGDDCBHBCEFBDJHJJJAFFDEFCIBHHDEAIABFGFFIEEGAIDFCHECGHFFHJHGAEHBGGDDDFIAFFDEHJEDDAJFEEEFIDAFFJEIJDDGACGGIEGEHEDEJBGIJCHCCAABCGBDIDEHJJBFEJHHIGBD".ToArray(),
                 1));
         }
 
@@ -271,15 +271,51 @@
                 (int)(100000 *
                 solution.MincostToHireWorkers(
                     new int[] { 14, 56, 59, 89, 39, 26, 86, 76, 3, 36 },
-                    new int[] { 90, 217, 301, 202, 294, 445, 473, 245, 415, 487 }, 
+                    new int[] { 90, 217, 301, 202, 294, 445, 473, 245, 415, 487 },
                     2)) / 100000.0d);
 
             Assert.AreEqual(105.0d, solution.MincostToHireWorkers(new int[] { 10, 20, 5 }, new int[] { 70, 50, 30 }, 2));
             Assert.AreEqual(30.66666d, (int)(100000 *
                 solution.MincostToHireWorkers(
-                    new int[] { 3, 1, 10, 10, 1 }, 
-                    new int[] { 4, 8, 2, 2, 7 }, 
+                    new int[] { 3, 1, 10, 10, 1 },
+                    new int[] { 4, 8, 2, 2, 7 },
                     3)) / 100000.0d);
+        }
+
+        [TestMethod]
+        public void TestP85()
+        {
+            var solution = new P85.S2.Solution();
+            Assert.AreEqual(6, solution.MaximalRectangle(new char[4, 5]
+            { { '1', '0', '1', '0', '0' },
+              { '1', '0', '1', '1', '1' },
+              { '1', '1', '1', '1', '1' },
+              { '1', '0', '0', '1', '0' } }));
+        }
+
+        [TestMethod]
+        public void TestP343()
+        {
+            var solution = new P343.Solution();
+
+            Assert.AreEqual(36, solution.IntegerBreak(10));
+            Assert.AreEqual(18, solution.IntegerBreak(8));
+            Assert.AreEqual(27, solution.IntegerBreak(9));
+            Assert.AreEqual(1, solution.IntegerBreak(2));
+        }
+
+        [TestMethod]
+        public void TestP34()
+        {
+            var solution = new P34.Solution();
+
+            CollectionAssert.AreEqual(new int[] { 3, 4 }, solution.SearchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 8));
+            CollectionAssert.AreEqual(new int[] { -1, -1 }, solution.SearchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 6));
+            CollectionAssert.AreEqual(new int[] { 0, 0 }, solution.SearchRange(new int[] { 1 }, 1));
+            CollectionAssert.AreEqual(new int[] { 0, 1 }, solution.SearchRange(new int[] { 1, 1 }, 1));
+            CollectionAssert.AreEqual(new int[] { 0, 0 }, solution.SearchRange(new int[] { 1, 2, 3 }, 1));
+            CollectionAssert.AreEqual(new int[] { 2, 2 }, solution.SearchRange(new int[] { 1, 2, 3 }, 3));
+            CollectionAssert.AreEqual(new int[] { 0, 4 }, solution.SearchRange(new int[] { 0, 0, 0, 0, 0, 1, 2, 3, 4, 5 }, 0));
         }
     }
 }
