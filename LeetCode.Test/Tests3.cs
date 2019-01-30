@@ -317,5 +317,22 @@
             CollectionAssert.AreEqual(new int[] { 2, 2 }, solution.SearchRange(new int[] { 1, 2, 3 }, 3));
             CollectionAssert.AreEqual(new int[] { 0, 4 }, solution.SearchRange(new int[] { 0, 0, 0, 0, 0, 1, 2, 3, 4, 5 }, 0));
         }
+
+        [TestMethod]
+        public void TestP30()
+        {
+            var solution = new P30.Solution();
+            CollectionAssert.AreEquivalent(
+                new int[] { 0, 9 },
+                solution.FindSubstring("barfoothefoobarman", new string[] { "foo", "bar" }).ToArray());
+
+            CollectionAssert.AreEquivalent(
+               new int[] { },
+               solution.FindSubstring("wordgoodgoodgoodbestword", new string[] { "word", "good", "best", "word" }).ToArray());
+
+            CollectionAssert.AreEquivalent(
+               new int[] { 8 },
+               solution.FindSubstring("wordgoodgoodgoodbestword", new string[] { "word", "good", "best", "good" }).ToArray());
+        }
     }
 }
