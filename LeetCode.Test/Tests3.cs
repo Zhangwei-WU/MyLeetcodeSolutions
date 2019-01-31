@@ -334,5 +334,13 @@
                new int[] { 8 },
                solution.FindSubstring("wordgoodgoodgoodbestword", new string[] { "word", "good", "best", "good" }).ToArray());
         }
+
+        [TestMethod]
+        public void TestP32()
+        {
+            var solution = new P32.Solution();
+            Assert.AreEqual(2, solution.LongestValidParentheses("(()"));
+            Assert.AreEqual(4, solution.LongestValidParentheses(")()())"));
+        }
     }
 }

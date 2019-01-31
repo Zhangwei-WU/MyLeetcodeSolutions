@@ -27,7 +27,7 @@
             var chars = s.ToCharArray();
             var clen = chars.Length;
             var wlen = words[0].Length;
-
+            var tlen = alen * wlen;
             var indices = new List<KeyValuePair<int, List<int>>>();
             for (int i = 0, j; i < clen; i++)
             {
@@ -43,10 +43,10 @@
             
             var result = new List<int>();
 
-            for (int i = 0, ilen = indices.Count, endl = ilen - alen + 1; i < endl; i++)
+            for (int i = 0, endl = indices.Count - alen + 1; i < endl; i++)
             {
                 var curr = indices[i].Key;
-
+                
                 bool[] removed = new bool[alen];
 
                 var matched = 0;
@@ -56,22 +56,22 @@
                     var cp = c.Key - curr;
                     if (cp == 0)
                     {
-                        foreach (var index in c.Value)
+                        foreach (var k in c.Value)
                         {
-                            if (removed[index]) continue;
+                            if (removed[k]) continue;
+                            removed[k] = true;
                             matched++;
                             curr += wlen;
-                            removed[index] = true;
                             break;
                         }
                     }
                     else if (cp > 0) break;
                 }
 
-                if (matched == alen) result.Add(indices[i].Key);
+                if (matched == alen) result.Add(curr - tlen);
             }
 
-            return result.ToArray();
+            return result;
         }
 
         private TrieNode BuildTrie(string[] words)
@@ -83,10 +83,7 @@
                 foreach (var c in words[i])
                 {
                     if (!p.subNodes.TryGetValue(c, out TrieNode value))
-                    {
-                        value = new TrieNode(c);
-                        p.subNodes.Add(c, value);
-                    }
+                        p.subNodes.Add(c, value = new TrieNode(c));
 
                     p = value;
                 }
