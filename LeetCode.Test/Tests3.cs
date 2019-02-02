@@ -342,5 +342,13 @@
             Assert.AreEqual(2, solution.LongestValidParentheses("(()"));
             Assert.AreEqual(4, solution.LongestValidParentheses(")()())"));
         }
+
+        [TestMethod]
+        public void TestP218()
+        {
+            var solution = new P218.Solution();
+
+
+        }
     }
 }
