@@ -40,7 +40,7 @@ namespace LeetCode.Generics
             return true;
         }
 
-        public T RemoveMin()
+        public T Remove()
         {
             if (n == 0) return default(T);
 
@@ -61,7 +61,7 @@ namespace LeetCode.Generics
             return e;
         }
 
-        public T ReplaceMin(T node)
+        public T Replace(T node)
         {
             if (n == 0)
             {

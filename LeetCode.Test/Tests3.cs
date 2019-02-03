@@ -350,5 +350,35 @@
 
 
         }
+
+        [TestMethod]
+        public void TestP264()
+        {
+            var solution = new P264.Solution();
+            Assert.AreEqual(1, solution.NthUglyNumber(1));
+            Assert.AreEqual(2, solution.NthUglyNumber(2));
+            Assert.AreEqual(3, solution.NthUglyNumber(3));
+            Assert.AreEqual(4, solution.NthUglyNumber(4));
+            Assert.AreEqual(5, solution.NthUglyNumber(5));
+            Assert.AreEqual(6, solution.NthUglyNumber(6));
+            Assert.AreEqual(8, solution.NthUglyNumber(7));
+            Assert.AreEqual(10, solution.NthUglyNumber(9));
+            Assert.AreEqual(12, solution.NthUglyNumber(10));
+        }
+
+        [TestMethod]
+        public void TestP313()
+        {
+            var solution = new P313.Solution();
+            Assert.AreEqual(12, solution.NthSuperUglyNumber(10, new int[] { 2, 3, 5 }));
+            Assert.AreEqual(1092889481, solution.NthSuperUglyNumber(100000, new int[] { 7, 19, 29, 37, 41, 47, 53, 59, 61, 79, 83, 89, 101, 103, 109, 127, 131, 137, 139, 157, 167, 179, 181, 199, 211, 229, 233, 239, 241, 251 }));
+        }
+
+        [TestMethod]
+        public void TestP373()
+        {
+            var solution = new P373.Solution();
+            solution.KSmallestPairs(new int[] { 1, 7, 11 }, new int[] { 2, 4, 6 }, 3);
+        }
     }
 }
