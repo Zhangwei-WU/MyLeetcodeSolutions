@@ -380,5 +380,12 @@
             var solution = new P373.Solution();
             solution.KSmallestPairs(new int[] { 1, 7, 11 }, new int[] { 2, 4, 6 }, 3);
         }
+
+        [TestMethod]
+        public void TestP84()
+        {
+            var solution = new P84.Solution();
+            Assert.AreEqual(10, solution.LargestRectangleArea(new int[] { 2, 1, 5, 6, 2, 3 }));
+        }
     }
 }
