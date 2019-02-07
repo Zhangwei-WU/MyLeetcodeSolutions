@@ -387,5 +387,17 @@
             var solution = new P84.Solution();
             Assert.AreEqual(10, solution.LargestRectangleArea(new int[] { 2, 1, 5, 6, 2, 3 }));
         }
+
+        [TestMethod]
+        public void TestP71()
+        {
+            var solution = new P71.Solution();
+            Assert.AreEqual("/home", solution.SimplifyPath("/home/"));
+            Assert.AreEqual("/", solution.SimplifyPath("/../"));
+            Assert.AreEqual("/home/foo", solution.SimplifyPath("/home//foo/"));
+            Assert.AreEqual("/c", solution.SimplifyPath("/a/./b/../../c/"));
+            Assert.AreEqual("/c", solution.SimplifyPath("/a/../../b/../c//.//"));
+            Assert.AreEqual("/a/b/c", solution.SimplifyPath("/a//b////c/d//././/.."));
+        }
     }
 }

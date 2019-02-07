@@ -57,10 +57,8 @@
                     int tmin, tmax;
                     while ((tmin = mins[min]) != min) { mins[min] = mins[tmin]; min = tmin; }
                     while ((tmax = maxs[max]) != max) { maxs[max] = maxs[tmax]; max = tmax; }
-
-                    var h = heightsWithIndex[k].Key;
-
-                    var t = (max - min + 1) * h;
+                    
+                    var t = (max - min + 1) * heightsWithIndex[k].Key;
                     if (t > area) area = t;
                 }
             }
