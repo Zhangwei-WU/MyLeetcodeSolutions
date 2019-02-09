@@ -399,5 +399,15 @@
             Assert.AreEqual("/c", solution.SimplifyPath("/a/../../b/../c//.//"));
             Assert.AreEqual("/a/b/c", solution.SimplifyPath("/a//b////c/d//././/.."));
         }
+
+        [TestMethod]
+        public void TestP75()
+        {
+            var solution = new P75.Solution();
+            var source = new int[] { 2, 0, 2, 1, 1, 0 };
+            var expected = source.OrderBy(p => p).ToArray();
+            solution.SortColors(source);
+            CollectionAssert.AreEqual(expected, source);
+        }
     }
 }
