@@ -35,15 +35,15 @@ namespace LeetCode.P233.S2
         public int CountDigitOne(int n)
         {
             if (n <= 0) return 0;
-            if (n < 10) return 1;
 
-            int nn = n, b = 1, l = 1, cnt = 0;
+            int b = 1, l = 1, cnt = 0;
             for (var i = n; (i /= 10) != 0; b *= 10, ++l) ;
 
             for (int i = l - 1; i >= 0; --i, b /= 10)
             {
                 var x = n / b;
                 n -= x * b;
+
                 if (x == 0) continue;
                 else if (x == 1) cnt += (b / 10 * i + n + 1);
                 else cnt += b / 10 * x * i + b;
