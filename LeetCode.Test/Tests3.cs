@@ -409,5 +409,37 @@
             solution.SortColors(source);
             CollectionAssert.AreEqual(expected, source);
         }
+
+        [TestMethod]
+        public void TestP233()
+        {
+            var solution = new P233.Solution();
+            Assert.AreEqual(6, solution.CountDigitOne(13));
+            Assert.AreEqual(1, solution.CountDigitOne(9));
+            Assert.AreEqual(20, solution.CountDigitOne(99));
+            Assert.AreEqual(300, solution.CountDigitOne(999));
+            Assert.AreEqual(4000, solution.CountDigitOne(9999));
+            Assert.AreEqual(50000, solution.CountDigitOne(99999));
+            Assert.AreEqual(600000, solution.CountDigitOne(999999));
+            Assert.AreEqual(7000000, solution.CountDigitOne(9999999));
+            Assert.AreEqual(80000000, solution.CountDigitOne(99999999));
+            Assert.AreEqual(900000000, solution.CountDigitOne(999999999));
+        }
+
+        [TestMethod]
+        public void TestP233S2()
+        {
+            var solution = new P233.S2.Solution();
+            Assert.AreEqual(6, solution.CountDigitOne(13));
+            Assert.AreEqual(1, solution.CountDigitOne(9));
+            Assert.AreEqual(20, solution.CountDigitOne(99));
+            Assert.AreEqual(300, solution.CountDigitOne(999));
+            Assert.AreEqual(4000, solution.CountDigitOne(9999));
+            Assert.AreEqual(50000, solution.CountDigitOne(99999));
+            Assert.AreEqual(600000, solution.CountDigitOne(999999));
+            Assert.AreEqual(7000000, solution.CountDigitOne(9999999));
+            Assert.AreEqual(80000000, solution.CountDigitOne(99999999));
+            Assert.AreEqual(900000000, solution.CountDigitOne(999999999));
+        }
     }
 }
