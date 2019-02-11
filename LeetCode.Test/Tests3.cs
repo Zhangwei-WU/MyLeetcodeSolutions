@@ -441,5 +441,24 @@
             Assert.AreEqual(80000000, solution.CountDigitOne(99999999));
             Assert.AreEqual(900000000, solution.CountDigitOne(999999999));
         }
+
+        [TestMethod]
+        public void TestP279()
+        {
+            var solution = new P279.Solution();
+
+            Assert.AreEqual(3, solution.NumSquares(12));
+            Assert.AreEqual(2, solution.NumSquares(13));
+            Assert.AreEqual(1, solution.NumSquares(1));
+        }
+
+        [TestMethod]
+        public void TestP357()
+        {
+            var solution = new P357.Solution();
+            Assert.AreEqual(1, solution.CountNumbersWithUniqueDigits(0));
+            Assert.AreEqual(10, solution.CountNumbersWithUniqueDigits(1));
+            Assert.AreEqual(91, solution.CountNumbersWithUniqueDigits(2));
+        }
     }
 }
