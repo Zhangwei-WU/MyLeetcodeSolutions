@@ -1,17 +1,10 @@
-﻿namespace LeetCode
+﻿using LeetCode.Generics;
+
+namespace LeetCode.P94
 {
     using System.Collections.Generic;
     using System.Linq;
-
-
-    public class TreeNode
-    {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int x) { val = x; }
-    }
-
+    
     public class Solution
     {
         public IList<int> InorderTraversal(TreeNode root)

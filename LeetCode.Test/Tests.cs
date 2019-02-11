@@ -3,6 +3,7 @@ namespace LeetCode.Test
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Linq;
+    using LeetCode.Generics;
 
     [TestClass]
     public partial class Tests
@@ -23,23 +24,23 @@ namespace LeetCode.Test
         [TestMethod]
         public void TestP112()
         {
-            var tree = new P112.TreeNode(5)
+            var tree = new TreeNode(5)
             {
-                left = new P112.TreeNode(4)
+                left = new TreeNode(4)
                 {
-                    left = new P112.TreeNode(11)
+                    left = new TreeNode(11)
                     {
-                        left = new P112.TreeNode(7),
-                        right = new P112.TreeNode(2)
+                        left = new TreeNode(7),
+                        right = new TreeNode(2)
                     },
                     right = null
                 },
-                right = new P112.TreeNode(8)
+                right = new TreeNode(8)
                 {
-                    left = new P112.TreeNode(13),
-                    right = new P112.TreeNode(4)
+                    left = new TreeNode(13),
+                    right = new TreeNode(4)
                     {
-                        right = new P112.TreeNode(1)
+                        right = new TreeNode(1)
                     }
                 }
             };

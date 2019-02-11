@@ -1,12 +1,7 @@
-﻿namespace LeetCode.P21
-{
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int x) { val = x; }
-    }
+﻿using LeetCode.Generics;
 
+namespace LeetCode.P21
+{
     public class Solution
     {
         public ListNode MergeTwoLists(ListNode l1, ListNode l2)

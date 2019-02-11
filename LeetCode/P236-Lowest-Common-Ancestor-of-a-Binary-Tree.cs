@@ -1,16 +1,4 @@
-﻿
-
-namespace LeetCode.P236
-{
-    public class TreeNode
-    {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int x) { val = x; }
-    }
-
-}
+﻿using LeetCode.Generics;
 
 namespace LeetCode.P236
 {

@@ -1,16 +1,9 @@
-﻿namespace LeetCode.P103
+﻿using LeetCode.Generics;
+
+namespace LeetCode.P103
 {
     using System.Collections.Generic;
-
-
-    public class TreeNode
-    {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int x) { val = x; }
-    }
-
+    
     public class Solution
     {
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root)

@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LeetCode.Generics;
 
 namespace LeetCode.P2
 {
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int x) { val = x; }
-    }
 
     public class Solution
     {

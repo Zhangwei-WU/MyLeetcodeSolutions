@@ -3,6 +3,7 @@ namespace LeetCode.Test
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Linq;
+    using LeetCode.Generics;
 
     public partial class Tests
     {
@@ -31,7 +32,7 @@ namespace LeetCode.Test
             var array2 = new int[] { 3, 5 };
             var array3 = new int[] { 2, 7, 8 };
 
-            var lists = new P23.ListNode[] { GetP23ListNode(array1), GetP23ListNode(array2), GetP23ListNode(array3) };
+            var lists = new ListNode[] { GetP23ListNode(array1), GetP23ListNode(array2), GetP23ListNode(array3) };
 
             var solution = new P23.Solution();
             var result = solution.MergeKLists(lists);
@@ -56,14 +57,14 @@ namespace LeetCode.Test
 
         }
 
-        private P23.ListNode GetP23ListNode(int[] array)
+        private ListNode GetP23ListNode(int[] array)
         {
-            var root = new P23.ListNode(array[0]);
+            var root = new ListNode(array[0]);
             var curr = root;
 
             for (var i = 1; i < array.Length; i++)
             {
-                curr.next = new P23.ListNode(array[i]);
+                curr.next = new ListNode(array[i]);
                 curr = curr.next;
             }
 
@@ -167,19 +168,19 @@ namespace LeetCode.Test
         {
             var solution = new P2.Solution();
 
-            var result = solution.AddTwoNumbers(new P2.ListNode(0), new P2.ListNode(0));
+            var result = solution.AddTwoNumbers(new ListNode(0), new ListNode(0));
             Assert.IsNotNull(result);
             Assert.AreEqual(0, result.val);
             result = result.next;
             Assert.IsNull(result);
 
-            result = solution.AddTwoNumbers(new P2.ListNode(2), new P2.ListNode(1));
+            result = solution.AddTwoNumbers(new ListNode(2), new ListNode(1));
             Assert.IsNotNull(result);
             Assert.AreEqual(3, result.val);
             result = result.next;
             Assert.IsNull(result);
 
-            result = solution.AddTwoNumbers(new P2.ListNode(7), new P2.ListNode(8));
+            result = solution.AddTwoNumbers(new ListNode(7), new ListNode(8));
             Assert.IsNotNull(result);
             Assert.AreEqual(5, result.val);
             result = result.next;
@@ -188,7 +189,7 @@ namespace LeetCode.Test
             result = result.next;
             Assert.IsNull(result);
 
-            result = solution.AddTwoNumbers(new P2.ListNode(1) { next = new P2.ListNode(1) }, new P2.ListNode(2) { next = new P2.ListNode(9) });
+            result = solution.AddTwoNumbers(new ListNode(1) { next = new ListNode(1) }, new ListNode(2) { next = new ListNode(9) });
             Assert.IsNotNull(result);
             Assert.AreEqual(3, result.val);
             result = result.next;
@@ -335,10 +336,10 @@ namespace LeetCode.Test
         {
             var solution = new P297.Codec();
             var serialized = solution.serialize(
-                new P297.TreeNode(1)
+                new TreeNode(1)
                 {
-                    left = new P297.TreeNode(2),
-                    right = new P297.TreeNode(3)
+                    left = new TreeNode(2),
+                    right = new TreeNode(3)
                 });
 
             var deserialized = solution.deserialize(serialized);

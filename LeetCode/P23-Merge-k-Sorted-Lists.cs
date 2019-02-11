@@ -6,15 +6,7 @@
  * AC: 182ms
  */
 
-namespace LeetCode.P23
-{
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int x) { val = x; }
-    }
-}
+using LeetCode.Generics;
 
 namespace LeetCode.P23
 {

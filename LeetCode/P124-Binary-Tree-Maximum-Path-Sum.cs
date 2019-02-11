@@ -1,14 +1,7 @@
-﻿
+﻿using LeetCode.Generics;
+
 namespace LeetCode.P124
 {
-    public class TreeNode
-    {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int x) { val = x; }
-    }
-
     public class Solution
     {
         public int MaxPathSum(TreeNode root)

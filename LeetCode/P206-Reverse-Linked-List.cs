@@ -1,12 +1,7 @@
-﻿namespace LeetCode.P206
-{
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int x) { val = x; }
-    }
+﻿using LeetCode.Generics;
 
+namespace LeetCode.P206
+{
     public class Solution
     {
         public ListNode ReverseList(ListNode head)
