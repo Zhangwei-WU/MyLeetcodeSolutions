@@ -458,5 +458,21 @@
             Assert.AreEqual(10, solution.CountNumbersWithUniqueDigits(1));
             Assert.AreEqual(91, solution.CountNumbersWithUniqueDigits(2));
         }
+
+        [TestMethod]
+        public void TestP844()
+        {
+            var solution = new P844.Solution();
+            Assert.IsTrue(solution.BackspaceCompare("y#fo##f", "y#f#o##f"));
+        }
+
+        [TestMethod]
+        public void TestP394()
+        {
+            var solution = new P394.Solution();
+            Assert.AreEqual("aaabcbc", solution.DecodeString("3[a]2[bc]"));
+            Assert.AreEqual("accaccacc", solution.DecodeString("3[a2[c]]"));
+            Assert.AreEqual("abcabccdcdcdef", solution.DecodeString("2[abc]3[cd]ef"));
+        }
     }
 }
