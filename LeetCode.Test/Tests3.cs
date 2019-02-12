@@ -474,5 +474,14 @@
             Assert.AreEqual("accaccacc", solution.DecodeString("3[a2[c]]"));
             Assert.AreEqual("abcabccdcdcdef", solution.DecodeString("2[abc]3[cd]ef"));
         }
+
+        [TestMethod]
+        public void TestP150()
+        {
+            var solution = new P150.Solution();
+            Assert.AreEqual(9, solution.EvalRPN(new string[] { "2", "1", "+", "3", "*" }));
+            Assert.AreEqual(6, solution.EvalRPN(new string[] { "4", "13", "5", "/", "+" }));
+            Assert.AreEqual(22, solution.EvalRPN(new string[] { "10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+" }));
+        }
     }
 }
