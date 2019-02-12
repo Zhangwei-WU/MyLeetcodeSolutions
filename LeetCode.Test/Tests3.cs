@@ -483,5 +483,27 @@
             Assert.AreEqual(6, solution.EvalRPN(new string[] { "4", "13", "5", "/", "+" }));
             Assert.AreEqual(22, solution.EvalRPN(new string[] { "10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+" }));
         }
+
+        [TestMethod]
+        public void TestP69()
+        {
+            var solution = new P69.Solution();
+            Assert.AreEqual(1, solution.MySqrt(1));
+            Assert.AreEqual(1, solution.MySqrt(2));
+            Assert.AreEqual(1, solution.MySqrt(3));
+            Assert.AreEqual(2, solution.MySqrt(4));
+            Assert.AreEqual(2, solution.MySqrt(7));
+            Assert.AreEqual(3, solution.MySqrt(9));
+            Assert.AreEqual(4, solution.MySqrt(16));
+            Assert.AreEqual(5, solution.MySqrt(25));
+            Assert.AreEqual(5, solution.MySqrt(30));
+            Assert.AreEqual(6, solution.MySqrt(36));
+            Assert.AreEqual(6, solution.MySqrt(40));
+            Assert.AreEqual(7, solution.MySqrt(50));
+            Assert.AreEqual(7, solution.MySqrt(60));
+            Assert.AreEqual(9, solution.MySqrt(90));
+            Assert.AreEqual(10, solution.MySqrt(101));
+            Assert.AreEqual(46340, solution.MySqrt(2147395600));
+        }
     }
 }
