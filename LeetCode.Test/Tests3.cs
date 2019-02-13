@@ -505,5 +505,16 @@
             Assert.AreEqual(10, solution.MySqrt(101));
             Assert.AreEqual(46340, solution.MySqrt(2147395600));
         }
+
+        [TestMethod]
+        public void TestP65()
+        {
+            var solution = new P65.Solution();
+            Assert.IsTrue(solution.IsNumber("0"));
+            Assert.IsFalse(solution.IsNumber(" "));
+            Assert.IsTrue(solution.IsNumber("01"));
+            Assert.IsTrue(solution.IsNumber("3."));
+            Assert.IsTrue(solution.IsNumber("2e0"));
+        }
     }
 }
