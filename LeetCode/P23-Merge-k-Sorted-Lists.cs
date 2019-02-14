@@ -108,3 +108,68 @@ namespace LeetCode.P23
         }
     }
 }
+
+namespace LeetCode.P23.S2
+{
+    using System.Collections.Generic;
+
+    public class Solution
+    {
+        public ListNode MergeKLists(ListNode[] lists)
+        {
+            if (lists.Length == 0) return null;
+            if (lists.Length == 1) return lists[0];
+            if (lists.Length == 2) return MergeTwoLists(lists[0], lists[1]);
+
+            var result = new List<ListNode>(lists);
+            var len = 0;
+            while ((len = result.Count) != 1)
+            {
+                var newResult = new List<ListNode>((len + 1) / 2);
+                for (var i = 0; i < len; i += 2)
+                {
+                    if (i == len - 1) newResult.Add(result[i]);
+                    else newResult.Add(MergeTwoLists(result[i], result[i + 1]));
+                }
+
+                result = newResult;
+            }
+
+            return result[0];
+        }
+
+        private ListNode MergeTwoLists(ListNode l1, ListNode l2)
+        {
+            if (l1 == null && l2 == null) return null;
+            var temp = new ListNode(0);
+            var head = temp;
+
+            while (true)
+            {
+                if (l1 == null)
+                {
+                    temp.next = l2;
+                    break;
+                }
+                else if (l2 == null)
+                {
+                    temp.next = l1;
+                    break;
+                }
+                else if (l1.val < l2.val)
+                {
+                    temp = temp.next = l1;
+                    l1 = l1.next;
+                }
+                else
+                {
+                    temp = temp.next = l2;
+                    l2 = l2.next;
+                }
+            }
+
+            return head.next;
+        }
+    }
+
+}
