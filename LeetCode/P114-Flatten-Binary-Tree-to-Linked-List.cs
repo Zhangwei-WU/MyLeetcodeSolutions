@@ -1,6 +1,6 @@
 ﻿using LeetCode.Generics;
 
-namespace LeetCode
+namespace LeetCode.P114
 {
     public class Solution
     {
