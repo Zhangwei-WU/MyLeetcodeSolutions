@@ -516,5 +516,12 @@
             Assert.IsTrue(solution.IsNumber("3."));
             Assert.IsTrue(solution.IsNumber("2e0"));
         }
+
+        [TestMethod]
+        public void TestP187()
+        {
+            var solution = new P187.Solution();
+            CollectionAssert.AreEquivalent(new string[] { "AAAAAAAAAA" }, solution.FindRepeatedDnaSequences("AAAAAAAAAAA").ToArray());
+        }
     }
 }
