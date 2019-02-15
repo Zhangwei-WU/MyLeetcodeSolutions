@@ -523,5 +523,12 @@
             var solution = new P187.Solution();
             CollectionAssert.AreEquivalent(new string[] { "AAAAAAAAAA" }, solution.FindRepeatedDnaSequences("AAAAAAAAAAA").ToArray());
         }
+
+        [TestMethod]
+        public void TestP18()
+        {
+            var solution = new P18.Solution();
+            var result = solution.FourSum(new int[] { 1, -2, -5, -4, -3, 4, 4, 5 }, -11);
+        }
     }
 }
