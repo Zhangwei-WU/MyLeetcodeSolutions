@@ -11,16 +11,9 @@ namespace LeetCode.P28
             var hs = haystack.ToCharArray();
             var ns = needle.ToCharArray();
 
-            var hl = hs.Length;
-            var nl = ns.Length;
-
-            for (int i = 0, j; i <= hl - nl; ++i)
+            for (int i = 0, j, nl = ns.Length, hl = hs.Length - nl; i <= hl; ++i)
             {
-                for (j = 0; j < nl; ++j)
-                {
-                    if (hs[i + j] != ns[j]) break;
-                }
-
+                for (j = 0; j < nl; ++j) if (hs[i + j] != ns[j]) break;
                 if (j == nl) return i;
             }
 
