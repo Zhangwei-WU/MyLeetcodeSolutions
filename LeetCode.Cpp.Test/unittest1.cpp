@@ -4,6 +4,7 @@
 #include "../LeetCode.Cpp/P632-Smallest-Range.h"
 #include "../LeetCode.Cpp/P33-Search-in-Rotated-Sorted-Array.h"
 #include "../LeetCode.Cpp/P745-Prefix-and-Suffix-Search.h"
+#include "../LeetCode.Cpp/P1-Two-Sum.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -60,6 +61,21 @@ namespace LeetCodeCppTest
 			Assert::AreEqual(-1, filter.f("a", "b"));
 			Assert::AreEqual(1, filter.f("a", "le"));
 		}
+
+		TEST_METHOD(CppTestP1)
+		{
+			std::vector<int> data;
+			data.push_back(2);
+			data.push_back(7);
+			data.push_back(15);
+			data.push_back(11);
+
+			P1::Solution solution;
+			auto result = solution.twoSum(data, 9);
+			Assert::AreEqual(0, result[0]);
+			Assert::AreEqual(1, result[1]);
+		}
+
 
 	};
 }

@@ -15,51 +15,25 @@ namespace LeetCode.P33
     {
         public int Search(int[] nums, int target)
         {
-            for (int lo = 0, hi = nums.Length - 1; lo <= hi;)
+            for (int l = 0, h = nums.Length - 1; l <= h;)
             {
-                var nlo = nums[lo];
-                if (target == nlo) return lo;
+                var m = l + (h - l) / 2;
+                var cp = nums[m] - target;
+                if (cp == 0) return m;
 
-                var nhi = nums[hi];
-                if (target == nhi) return hi;
-                if (nlo <= nhi) return BinarySearch(nums, lo + 1, hi - lo - 1, target);
-
-                var mid = (lo + hi) >> 1;
-                var nmid = nums[mid];
-                if (target == nmid) return mid;
-
-                if (nlo < nmid)
+                if (nums[l] <= nums[m])
                 {
-                    if (target > nlo && target < nmid) return BinarySearch(nums, lo + 1, mid - lo - 1, target);
-                    lo = mid + 1;
+                    if (target >= nums[l] && cp > 0) h = m - 1;
+                    else l = m + 1;
                 }
                 else
                 {
-                    if (target > nmid && target < nhi) return BinarySearch(nums, mid + 1, hi - mid - 1, target);
-                    hi = mid - 1;
+                    if (target <= nums[h] && cp < 0) l = m + 1;
+                    else h = m - 1;
                 }
-            }
-
-            return -1;
-        }
-
-        private int BinarySearch(int[] array, int index, int length, int value)
-        {
-            int lo = index;
-            int hi = index + length - 1;
-            while (lo <= hi)
-            {
-                int i = lo + ((hi - lo) >> 1);
-                int cp = array[i] - value;
-
-                if (cp == 0) return i;
-
-                if (cp < 0) lo = i + 1;
-                else hi = i - 1;
             }
 
             return -1;
         }
     }
-
 }

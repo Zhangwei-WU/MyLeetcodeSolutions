@@ -17,6 +17,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)P231-Power-of-Two.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)P1-Two-Sum.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P116-Populating-Next-Right-Pointers-in-Each-Node.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P117-Populating-Next-Right-Pointers-in-Each-Node-II.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P138-Copy-List-with-Random-Pointer.h" />
