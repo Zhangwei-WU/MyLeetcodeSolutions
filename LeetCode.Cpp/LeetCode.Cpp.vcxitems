@@ -23,7 +23,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)P117-Populating-Next-Right-Pointers-in-Each-Node-II.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P138-Copy-List-with-Random-Pointer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P150-Evaluate-Reverse-Polish-Notation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P2-Add-Two-Numbers.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P25-Reverse-Nodes-in-k-Group.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P3-Longest-Substring-Without-Repeating-Characters.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P33-Search-in-Rotated-Sorted-Array.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P37-Sudoku-Solver.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)P6-ZigZag-Conversion.h" />

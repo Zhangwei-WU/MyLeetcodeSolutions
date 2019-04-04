@@ -14,6 +14,13 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)P150-Evaluate-Reverse-Polish-Notation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P1-Two-Sum.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P116-Populating-Next-Right-Pointers-in-Each-Node.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P117-Populating-Next-Right-Pointers-in-Each-Node-II.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P25-Reverse-Nodes-in-k-Group.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P6-ZigZag-Conversion.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P2-Add-Two-Numbers.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)P3-Longest-Substring-Without-Repeating-Characters.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
