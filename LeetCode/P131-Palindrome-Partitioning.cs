@@ -2,6 +2,7 @@
 namespace LeetCode.P131
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public class Solution
     {
@@ -11,7 +12,7 @@ namespace LeetCode.P131
             var l = chs.Length;
             var dp = new int[l, l];
             
-            return new List<IList<string>>(Dfs(chs, l - 1, dp));
+            return Dfs(chs, l - 1, dp).ToArray();
         }
 
         private int Fill(char[] chs, int i, int j, int[,] dp)
@@ -32,7 +33,7 @@ namespace LeetCode.P131
 
             for (var i = j; i >= 0; --i)
             {
-                if (Fill(chs, i, j, dp) == 1)
+                if (i == j || Fill(chs, i, j, dp) == 1)
                 {
                     var str = new string(chs, i, j - i + 1);
                     foreach (var result in Dfs(chs, i - 1, dp))
