@@ -12,12 +12,12 @@ namespace LeetCode.P37
 {
     public class Solution
     {
-        public void SolveSudoku(char[,] board)
+        public void SolveSudoku(char[][] board)
         {
             byte[] data = new byte[81];
-            for (var i = 0; i < 9; i++) for (var j = 0; j < 9; j++) data[i * 9 + j] = GetNumber(board[i, j]);
+            for (var i = 0; i < 9; i++) for (var j = 0; j < 9; j++) data[i * 9 + j] = GetNumber(board[i][j]);
             TryFillCell(data, 0);
-            for (var i = 0; i < 9; i++) for (var j = 0; j < 9; j++) board[i, j] = GetChar(data[i * 9 + j]);
+            for (var i = 0; i < 9; i++) for (var j = 0; j < 9; j++) board[i][j] = GetChar(data[i * 9 + j]);
         }
 
         private byte GetNumber(char c) { return c == '.' ? (byte)0 : (byte)(c - '0'); }

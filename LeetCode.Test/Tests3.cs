@@ -530,5 +530,15 @@
             var solution = new P18.Solution();
             var result = solution.FourSum(new int[] { 1, -2, -5, -4, -3, 4, 4, 5 }, -11);
         }
+
+        [TestMethod]
+        public void TestP131()
+        {
+            var solution = new P131.Solution();
+            var result = solution.Partition("cdd");
+            Assert.AreEqual(2, result.Count);
+            CollectionAssert.AreEqual(new string[] { "c", "d", "d" }, result[0].ToArray());
+            CollectionAssert.AreEqual(new string[] { "c", "dd" }, result[1].ToArray());
+        }
     }
 }
