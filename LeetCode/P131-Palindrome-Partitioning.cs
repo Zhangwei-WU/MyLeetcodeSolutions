@@ -17,10 +17,12 @@ namespace LeetCode.P131
 
         private int Fill(char[] chs, int i, int j, int[,] dp)
         {
-            if (i >= j) return 1;
-            if (dp[i, j] != 0) return dp[i, j];
-            if (chs[i] == chs[j]) return dp[i, j] = Fill(chs, i + 1, j - 1, dp);
-            return dp[i, j] = -1;
+            if (dp[i, j] == 0)
+                dp[i, j] = chs[i] == chs[j]
+                    ? (i < j - 2 ? Fill(chs, i + 1, j - 1, dp) : 1)
+                    : -1;
+            
+            return dp[i, j];
         }
 
         IEnumerable<IList<string>> Dfs(char[] chs, int j, int[,] dp)
