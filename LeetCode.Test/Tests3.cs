@@ -540,5 +540,12 @@
             CollectionAssert.AreEqual(new string[] { "c", "d", "d" }, result[0].ToArray());
             CollectionAssert.AreEqual(new string[] { "c", "dd" }, result[1].ToArray());
         }
+
+        [TestMethod]
+        public void TestP1282()
+        {
+            var sln = new P1282.Solution();
+            var result = sln.GroupThePeople(new int[] { 3, 3, 3, 3, 3, 1, 3 });
+        }
     }
 }
