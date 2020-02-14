@@ -8,24 +8,27 @@ namespace LeetCode.P131
     {
         public IList<IList<string>> Partition(string s)
         {
-            var chs = s.ToCharArray();
-            var l = chs.Length;
-            var dp = new int[l, l];
+            var l = s.Length;
+            var dp = new string[l, l];
             
-            return Dfs(chs, l - 1, dp).ToArray();
-        }
-
-        private int Fill(char[] chs, int i, int j, int[,] dp)
-        {
-            if (dp[i, j] == 0)
-                dp[i, j] = chs[i] == chs[j]
-                    ? (i < j - 2 ? Fill(chs, i + 1, j - 1, dp) : 1)
-                    : -1;
+            for (var i = 0; i < l; ++i)
+            {
+                for (var j = 0; i - j >= 0 && i + j < l && s[i - j] == s[i + j]; ++j)
+                {
+                    dp[i - j, i + j] = s.Substring(i - j, j + j + 1);
+                }
+                
+                for (var j = 0; i - j >= 0 && i + 1 + j < l && s[i - j] == s[i + 1 + j]; ++j)
+                {
+                    dp[i - j, i + j + 1] = s.Substring(i - j, j + j + 2);
+                }
+            }
             
-            return dp[i, j];
-        }
+            return Dfs(l - 1, dp).ToArray();
 
-        IEnumerable<IList<string>> Dfs(char[] chs, int j, int[,] dp)
+        }
+        
+        IEnumerable<IList<string>> Dfs(int j, string[,] dp)
         {
             if (j == -1)
             {
@@ -33,14 +36,14 @@ namespace LeetCode.P131
                 yield break;
             }
 
+            string c;
             for (var i = j; i >= 0; --i)
             {
-                if (i == j || Fill(chs, i, j, dp) == 1)
+                if ((c = dp[i, j]) != null)
                 {
-                    var str = new string(chs, i, j - i + 1);
-                    foreach (var result in Dfs(chs, i - 1, dp))
+                    foreach (var result in Dfs(i - 1, dp))
                     {
-                        result.Add(str);
+                        result.Add(c);
                         yield return result;
                     }
                 }
