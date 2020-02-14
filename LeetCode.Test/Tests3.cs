@@ -547,5 +547,15 @@
             var sln = new P1282.Solution();
             var result = sln.GroupThePeople(new int[] { 3, 3, 3, 3, 3, 1, 3 });
         }
+
+        [TestMethod]
+        public void TestP1106()
+        {
+            var sln = new P1106.Solution();
+            Assert.IsTrue(sln.ParseBoolExpr("!(f)"));
+            Assert.IsTrue(sln.ParseBoolExpr("|(f,t)"));
+            Assert.IsFalse(sln.ParseBoolExpr("&(t,f)"));
+            Assert.IsFalse(sln.ParseBoolExpr("|(&(t,f,t),!(t))"));
+        }
     }
 }
