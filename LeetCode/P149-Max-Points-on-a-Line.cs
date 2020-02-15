@@ -41,8 +41,7 @@ namespace LeetCode.P149
                     else
                     {
                         var angle = dx == 0 ? double.MaxValue : dy * 100.0d / dx; // multiply 100.0 to avoid potential overflow
-                        var cnt = 0;
-                        if (!cnts.TryGetValue(angle, out cnt)) cnts.Add(angle, cnt = 1);
+                        if (!cnts.TryGetValue(angle, out int cnt)) cnts.Add(angle, cnt = 1);
                         else cnts[angle] = ++cnt;
                         if (cnt + dup > cmax) cmax = cnt + dup;
                     }

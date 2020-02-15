@@ -557,5 +557,30 @@
             Assert.IsFalse(sln.ParseBoolExpr("&(t,f)"));
             Assert.IsFalse(sln.ParseBoolExpr("|(&(t,f,t),!(t))"));
         }
+
+        [TestMethod]
+        public void TestP639()
+        {
+            var sln = new P639.Solution();
+
+            Assert.AreEqual(9, sln.NumDecodings("*"));
+            Assert.AreEqual(18, sln.NumDecodings("1*"));
+            Assert.AreEqual(404, sln.NumDecodings("*1*1*0"));
+            Assert.AreEqual(123775776, sln.NumDecodings("********"));
+        }
+
+        [TestMethod]
+        public void TestP57()
+        {
+            var sln = new P57.Solution();
+
+            var result = sln.Insert(new int[][] { new int[]{ 1, 3 }, new int[] { 6, 9 } }, new int[] { 2, 5 });
+
+            Assert.AreEqual(2, result.Length);
+            Assert.AreEqual(1, result[0][0]);
+            Assert.AreEqual(5, result[0][1]);
+            Assert.AreEqual(6, result[1][0]);
+            Assert.AreEqual(9, result[1][1]);
+        }
     }
 }
