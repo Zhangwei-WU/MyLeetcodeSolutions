@@ -119,8 +119,8 @@ namespace P632
 
 				if (gap == 0 || pos == lens[i])
 				{
-					delete lens;
-					delete poss;
+					delete []lens;
+					delete []poss;
 					vector<int> result;
 					result.push_back(min);
 					result.push_back(max);
